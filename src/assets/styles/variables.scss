@@ -31,4 +31,21 @@
   --line-height-lg: 1.67;
 }
 
+html.dark {
+  --primary-color: #409eff;
+  --success-color: #67c23a;
+  --warning-color: #e6a23c;
+  --error-color: #f56c6c;
+  --info-color: #909399;
+  --border-color: #373737;
+  //--background-color: #1d1d1d;
+  --background-color: #161823;
+  --white: #fff;
+  --black: #000;
+  --font-color: #ffffff;
+  --font-color-light: #e0e0e0;
+  --font-color-lighter: #a0a0a0;
+  --font-color-lightest: #7d7d7d;
+}
+
 

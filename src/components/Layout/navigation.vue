@@ -53,7 +53,6 @@ const handleClose = (key: string, keyPath: string[]) => {
 </template>
 
 <style scoped lang="scss">
-@use '@/assets/styles/navigation.scss';
 .el-menu-vertical-demo:not(.el-menu--collapse) {
   width: 200px;
   min-height: 400px;
