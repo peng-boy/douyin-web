@@ -23,6 +23,7 @@
     "@vue/eslint-config-typescript": "^14.6.0",
     "@vue/tsconfig": "^0.7.0",
     "autoprefixer": "^10.4.21",
+    "element-plus": "^2.10.4",
     "eslint": "^9.32.0",
     "eslint-plugin-vue": "^10.3.0",
     "postcss": "^8.5.6",
@@ -35,6 +36,6 @@
     "vite": "^7.0.4",
     "vite-plugin-vue-devtools": "^8.0.0",
     "vue-tsc": "^2.2.12",
-    "element-plus": "^2.10.4"
+    "@vueuse/core": "^13.5.0"
   }
 }
