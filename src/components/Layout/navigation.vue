@@ -12,6 +12,10 @@ const handleClose = (key: string, keyPath: string[]) => {
 </script>
 
 <template>
+  <a href="//www.douyin.com/" class="douyin-logo w-[72px] h-[56px]" />
+  <div class="h-[56px] w-full">
+    <div class="logo-img w-full"></div>
+  </div>
   <el-menu
     default-active="2"
     class="el-menu-vertical-demo"
@@ -53,8 +57,21 @@ const handleClose = (key: string, keyPath: string[]) => {
 </template>
 
 <style scoped lang="scss">
+.douyin-logo {
+  position: fixed;
+  top: 0;
+  left: 32px;
+  background: url("@/assets/images/logo-horizont-dark.svg") center center no-repeat;
+  background-size: 72px 28px;
+}
+.logo-img {
+  height: 165%;
+}
 .el-menu-vertical-demo:not(.el-menu--collapse) {
-  width: 200px;
-  min-height: 400px;
+  width: 100%;
+  min-height: 100vh;
+}
+.el-menu {
+  border: none;
 }
 </style>

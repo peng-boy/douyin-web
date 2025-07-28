@@ -5,7 +5,8 @@ import Navigation from '@/components/Layout/navigation.vue'
 <template>
   <div class="common-layout">
     <el-container>
-      <el-aside>
+      <el-aside width="160px">
+
         <Navigation />
       </el-aside>
       <el-container>
