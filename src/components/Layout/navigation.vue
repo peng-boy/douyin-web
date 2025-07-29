@@ -1,77 +1,150 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-// import { Document, Menu as IconMenu, Location, Setting } from '@element-plus/icons-vue'
 
-const isCollapse = ref(false)
-const handleOpen = (key: string, keyPath: string[]) => {
-  console.log(key, keyPath)
+type MenuItem = {
+  title: string
+  icon: string
+  link: string
+  cornerMark: object
+  type?: string
 }
-const handleClose = (key: string, keyPath: string[]) => {
-  console.log(key, keyPath)
-}
+
+const menuGroup = ref<MenuItem[]>([
+  {
+    title: '精选',
+    icon: '',
+    link: '/jingxuan',
+    cornerMark: {},
+    type: 'menu',
+  },
+  {
+    title: '推荐',
+    icon: '',
+    link: '/',
+    cornerMark: {},
+    type: 'menu',
+  },
+  {
+    title: 'AI搜索',
+    icon: '',
+    link: '/aisearch',
+    cornerMark: {},
+    type: 'menu',
+  },
+  {
+    title: '',
+    icon: '',
+    link: '',
+    cornerMark: {},
+    type: 'parting-line',
+  },
+  {
+    title: '关注',
+    icon: '',
+    link: '/follow',
+    cornerMark: {},
+    type: 'menu',
+  },
+  {
+    title: '朋友',
+    icon: '',
+    link: '/friend',
+    cornerMark: {},
+    type: 'menu',
+  },
+  {
+    title: '我的',
+    icon: '',
+    link: '/user/self',
+    cornerMark: {},
+    type: 'menu',
+  },
+  {
+    title: '',
+    icon: '',
+    link: '',
+    cornerMark: {},
+    type: 'parting-line',
+  },
+  {
+    title: '直播',
+    icon: '',
+    link: '/from_nav',
+    cornerMark: {},
+    type: 'menu',
+  },
+  {
+    title: '放映厅',
+    icon: '',
+    link: '/vs',
+    cornerMark: {},
+    type: 'menu',
+  },
+  {
+    title: '短剧',
+    icon: '',
+    link: '/series',
+    cornerMark: {},
+    type: 'menu',
+  },
+])
 </script>
 
 <template>
-  <a href="//www.douyin.com/" class="douyin-logo w-[72px] h-[56px]" />
+  <a href="//www.douyin.com/" class="douyin-logo w-[30px] h-[56px]" />
   <div class="h-[56px] w-full">
     <div class="logo-img w-full"></div>
   </div>
-  <el-menu
-    default-active="2"
-    class="el-menu-vertical-demo"
-    :collapse="isCollapse"
-    @open="handleOpen"
-    @close="handleClose"
-  >
-    <el-sub-menu index="1">
-      <template #title>
-        <!--        <el-icon><location /></el-icon>-->
-        <span>Navigator One</span>
-      </template>
-      <el-menu-item-group>
-        <template #title><span>Group One</span></template>
-        <el-menu-item index="1-1">item one</el-menu-item>
-        <el-menu-item index="1-2">item two</el-menu-item>
-      </el-menu-item-group>
-      <el-menu-item-group title="Group Two">
-        <el-menu-item index="1-3">item three</el-menu-item>
-      </el-menu-item-group>
-      <el-sub-menu index="1-4">
-        <template #title><span>item four</span></template>
-        <el-menu-item index="1-4-1">item one</el-menu-item>
-      </el-sub-menu>
-    </el-sub-menu>
-    <el-menu-item index="2">
-      <!--      <el-icon><icon-menu /></el-icon>-->
-      <template #title>Navigator Two</template>
-    </el-menu-item>
-    <el-menu-item index="3" disabled>
-      <!--      <el-icon><document /></el-icon>-->
-      <template #title>Navigator Three</template>
-    </el-menu-item>
-    <el-menu-item index="4">
-      <!--      <el-icon><setting /></el-icon>-->
-      <template #title>Navigator Four</template>
-    </el-menu-item>
-  </el-menu>
+  <div class="menu-wrapper w-full flex flex-col items-center">
+    <template v-for="(item, index) in menuGroup" :key="index">
+      <div v-if="item.type === 'menu'" class="mt-[2px] mx-[16px]">
+        <router-link
+          :to="item.link"
+          active-class="menu-active"
+          class="menu-item w-[128px] h-[40px] flex items-center py-[8px] pl-[16px] text-(--color-text-t2)"
+        >
+          <div class="w-[36px] h-[24px]">i</div>
+          <div class="text-[16px]">{{ item.title }}</div>
+          <div class="corner-mark"></div>
+        </router-link>
+      </div>
+      <div
+        v-else
+        class="parting-line w-[112px] h-[1px] mt-[12px] mx-[24px] mb-[10px] border-b-1 border-(--color-line-l3)"
+      ></div>
+    </template>
+  </div>
 </template>
 
 <style scoped lang="scss">
 .douyin-logo {
   position: fixed;
   top: 0;
-  left: 32px;
-  background: url("@/assets/images/logo-horizont-dark.svg") center center no-repeat;
-  background-size: 72px 28px;
+  left: 21px;
+  background: url('@/assets/images/logo-horizontal-small-dark.svg') center center no-repeat;
+  background-size: 30px 34px;
+  transition: opacity 0.3s;
 }
 .logo-img {
   height: 165%;
 }
-.el-menu-vertical-demo:not(.el-menu--collapse) {
-  width: 100%;
-  min-height: 100vh;
+.menu-active {
+  border-radius: 12px;
+  color: var(--color-text-t0);
+  background-color: var(--color-fill-hover-alpha10);
 }
-.el-menu {
-  border: none;
+.corner-mark {
+  margin: 0 4px 0 auto;
+}
+
+@media (min-width: 1240px) {
+  .douyin-logo {
+    width: 72px;
+    background: url('@/assets/images/logo-horizont-dark.svg') center center no-repeat;
+    background-size: 72px 28px;
+  }
+  .menu-item {
+    width: 128px;
+  }
 }
 </style>

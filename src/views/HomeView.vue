@@ -1,7 +1,7 @@
 <script setup lang="ts"></script>
 
 <template>
-  <div class="w-[500px] bg-pink-500">
+  <div class="w-full h-full rounded-[16px] bg-inherit">
     <div class="mb-4">
       <el-button>Default</el-button>
       <el-button type="primary">Primary</el-button>
