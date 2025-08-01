@@ -121,7 +121,7 @@ const menuGroup = ref<MenuItem[]>([
   position: fixed;
   top: 0;
   left: 21px;
-  background: url('@/assets/images/logo-horizontal-small-dark.svg') center center no-repeat;
+  //background: url('@/assets/images/logo-horizontal-small-dark.svg') center center no-repeat;
   background-size: 30px 34px;
   transition: opacity 0.3s;
 }

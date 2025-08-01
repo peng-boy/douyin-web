@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue'
+import ThemeSwitch from '@/components/ThemeSwitch.vue'
 const value = ref('')
 </script>
 
@@ -20,6 +21,7 @@ const value = ref('')
       </div>
     </div>
     <div class="ml-auto">充钻石</div>
+    <theme-switch />
   </div>
 </template>
 
