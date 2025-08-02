@@ -1,4 +1,5 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+</script>
 
 <template>
   <div id="island">
@@ -60,15 +61,27 @@
   </div>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
 #island {
   position: fixed;
   bottom: 0;
-  width: 160px;
-  height: 60px;
+  width: 72px;
   gap: 8px;
   display: flex;
-  align-items: unset;
+  flex-direction: column;
+  align-items: center;
   justify-content: center;
+  padding: 12px 0;
+}
+
+@media (min-width: 1240px) {
+  #island {
+    width: 160px;
+    gap: 8px;
+    display: flex;
+    flex-direction: row;
+    align-items: unset;
+    justify-content: center;
+  }
 }
 </style>

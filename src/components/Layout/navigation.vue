@@ -95,22 +95,23 @@ const menuGroup = ref<MenuItem[]>([
   <div class="h-[56px] w-full">
     <div class="logo-img w-full"></div>
   </div>
-  <div class="menu-wrapper w-full flex flex-col items-center">
+  <div class="menu-wrapper w-full">
     <template v-for="(item, index) in menuGroup" :key="index">
-      <div v-if="item.type === 'menu'" class="mt-[2px] mx-[16px]">
+      <div v-if="item.type === 'menu'" class="menu-box">
         <router-link
           :to="item.link"
           active-class="menu-active"
-          class="menu-item w-[128px] h-[40px] flex items-center py-[8px] pl-[16px] text-(--color-text-t2)"
+          class="menu-item"
+          v-if="item.type === 'menu'"
         >
-          <div class="w-[36px] h-[24px]">i</div>
-          <div class="text-[16px]">{{ item.title }}</div>
+          <div class="iconfont w-[36px] h-[24px]">i</div>
+          <div >{{ item.title }}</div>
           <div class="corner-mark"></div>
         </router-link>
       </div>
       <div
         v-else
-        class="parting-line w-[112px] h-[1px] mt-[12px] mx-[24px] mb-[10px] border-b-1 border-(--color-line-l3)"
+        class="parting-line h-[9px] border-b-1 border-(--color-text-t3)"
       ></div>
     </template>
   </div>
@@ -121,30 +122,83 @@ const menuGroup = ref<MenuItem[]>([
   position: fixed;
   top: 0;
   left: 21px;
-  //background: url('@/assets/images/logo-horizontal-small-dark.svg') center center no-repeat;
+  background: url('@/assets/images/logo-horizontal-small-dark.svg') center center no-repeat;
   background-size: 30px 34px;
   transition: opacity 0.3s;
 }
 .logo-img {
   height: 165%;
 }
-.menu-active {
-  border-radius: 12px;
-  color: var(--color-text-t0);
-  background-color: var(--color-fill-hover-alpha10);
+
+.menu-wrapper {
+  color: var(--color-text-t2);
+
+  .menu-box {
+    border-radius: 12px;
+    margin: 8px 10px 0;
+    .menu-item {
+      width: 100%;
+      height: 100%;
+      padding: 6px 8px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+      font-size: 12px;
+
+      .corner-mark {
+        margin: 0 4px 0 auto;
+      }
+    }
+  }
+
+  .menu-active {
+    border-radius: 12px;
+    color: var(--color-text-t0);
+    background-color: var(--color-fill-hover-alpha10);
+  }
+  .parting-line {
+    margin: 8px 18px 0;
+  }
 }
-.corner-mark {
-  margin: 0 4px 0 auto;
-}
+
 
 @media (min-width: 1240px) {
   .douyin-logo {
     width: 72px;
     background: url('@/assets/images/logo-horizont-dark.svg') center center no-repeat;
     background-size: 72px 28px;
+    left: 32px
   }
-  .menu-item {
-    width: 128px;
+
+  .menu-wrapper {
+    .menu-box {
+      border-radius: 12px;
+      margin: 2px 16px 0;
+      .menu-item {
+        width: 100%;
+        height: 100%;
+        padding: 8px 0 8px 16px;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+        font-size: 16px;
+
+        .corner-mark {
+          margin: 0 4px 0 auto;
+        }
+      }
+    }
+    .menu-active {
+      color: var(--color-text-t0);
+      background-color: var(--color-fill-hover-alpha10);
+    }
+    .parting-line {
+      height: 1px;
+      border-bottom: 1px solid var(--color-line-l3);
+      margin: 12px 24px 10px;
+    }
   }
 }
 </style>
