@@ -14,7 +14,7 @@ export const routes = [
   {
     path: '/aisearch',
     name: 'AiSearch',
-    component: () => import('@/views/aiSearch/index.vue'),
+    component: () => import('@/views/ai-search/index.vue'),
   },
   {
     path: '/follow',
@@ -34,24 +34,23 @@ export const routes = [
   {
     path: '/live ',
     name: 'LiveStreaming',
-    component: () => import('@/views/liveStreaming/index.vue'),
+    component: () => import('@/views/live-streaming/index.vue'),
   },
   {
     path: '/vs',
     name: 'VideoHall',
-    component: () => import('@/views/videoHall/index.vue'),
+    component: () => import('@/views/video-hall/index.vue'),
   },
   {
     path: '/series',
     name: 'Series',
     component: () => import('@/views/series/index.vue'),
-  }
+  },
 ]
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: routes,
 })
-
 
 export default router
