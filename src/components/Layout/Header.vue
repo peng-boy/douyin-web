@@ -5,9 +5,10 @@ const value = ref('')
 </script>
 
 <template>
-  <div class="header-wrapper flex items-center h-[56px]">
-    <div class="search flex items-center m-auto">
-      <input v-model="value" />
+  <div class="header-wrapper">
+    <div class="search-wrapper flex items-center m-auto">
+      <input v-model="value" class="w-[100px] px-[12px]" placeholder="搜索你感兴趣的内容" />
+      <div class="parting-line w-[1px] h-[16px]"></div>
       <div class="w-[80px] flex justify-center items-center">
         <svg width="18" height="18" fill="none" xmlns="http://www.w3.org/2000/svg" class="ACMjZN5h">
           <path
@@ -17,7 +18,7 @@ const value = ref('')
             fill="#4F5168"
           ></path>
         </svg>
-        <span class="">搜索</span>
+        <span class="btn-title">搜索</span>
       </div>
     </div>
     <div class="ml-auto">充钻石</div>
@@ -27,16 +28,61 @@ const value = ref('')
 
 <style scoped lang="scss">
 .header-wrapper {
+  height: 56px;
   width: 100%;
-  .search {
+  display: flex;
+  align-items: center;
+  border-radius: 12px;
+
+  .search-wrapper {
+    width: 333px;
     max-width: 600px;
     height: 42px;
+    display: flex;
+    align-items: center;
     border-radius: 12px;
-    border: 1px solid var(--border-color);
+    background-color: rgba(22, 24, 35, 0.06);
+    border: 1px solid rgba(22, 24, 35, 0.05);
 
-    > input {
-      width: 100%;
-      height: 100%;
+    input {
+      flex: 1;
+    }
+
+    .parting-line {
+      border-left: 1px solid rgba(22, 24, 35, 0.2);
+    }
+
+    .btn-title {
+      font-size: 16px;
+      color: var(--font-color-light);
+      margin-left: 3px;
+    }
+  }
+}
+
+.dark {
+  .header-wrapper {
+    .search-wrapper {
+      background-color: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+
+      .parting-line {
+        border-left: 1px solid rgba(255, 255, 255, 0.16);
+      }
+
+      .btn-title {
+        font-size: 16px;
+        color: var(--font-color-light);
+        margin-left: 3px;
+      }
+    }
+  }
+}
+
+@media (min-width: 1240px) {
+  .header-wrapper {
+    .search-wrapper {
+      height: 42px;
     }
   }
 }

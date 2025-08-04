@@ -1,7 +1,8 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+</script>
 
 <template>
-  <div class="w-full h-full rounded-[16px] bg-inherit">
+  <div class="recommend-wrapper w-full h-full rounded-[12px] bg-black">
     <div class="mb-4">
       <el-button>Default</el-button>
       <el-button type="primary">Primary</el-button>
@@ -13,4 +14,9 @@
   </div>
 </template>
 
-<style scoped></style>
+<style scoped lang="scss">
+.recommend-wrapper {
+  //background-color: black;
+  //border-radius: 12px;
+}
+</style>

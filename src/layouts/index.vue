@@ -32,6 +32,10 @@ import Header from '@/components/Layout/Header.vue'
     .el-aside {
       position: relative;
     }
+
+    .el-main {
+      padding: 0;
+    }
   }
 }
 
